@@ -5,6 +5,7 @@ import {loginUser} from '@/config/localStorage.config'
 
 // 缓存路由
 const Login = () => import('@/pages/login')
+const Register = () => import('@/pages/register')
 const Home = () => import('@/pages/home')
 const List = () => import('@/components/list/list')
 const Msg = () => import('@/components/msg/msg')
@@ -16,6 +17,10 @@ const routes = [
     path: '/',
     redirect: '/login'
   }, {
+    path:'/register',
+    name: 'register',
+    component:Register
+  },{
     path: '/login',
     name: 'login',
     component: Login
@@ -79,7 +84,7 @@ router.afterEach((to) => {
   const username = localStorage.get(loginUser)
   // 未登录跳转登录页
   if (!username && to.path !== '/login') {
-    router.push('/login')
+    //router.push('/login')
   }
 })
 

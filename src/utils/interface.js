@@ -9,7 +9,17 @@ export const getUser = (data)=>{
   })
 }
 
+export const register = (data)=>{
+  return axios({
+    url:'/register',
+    method:'post',
+    data:data,
+    type:'json'
+  })
+}
+
 // 导出全部
 export default {
-  getUser
+  getUser,
+  register
 }

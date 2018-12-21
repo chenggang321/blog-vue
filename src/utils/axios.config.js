@@ -1,6 +1,6 @@
 export default {
   method:'get',
-  baseURL:'http://localhost:8080/static',
+  baseURL:'/api',
   headers:{
     'Content-Type': 'application/json;charset=UTF-8'
   },
