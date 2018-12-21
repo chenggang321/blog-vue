@@ -1,0 +1,79 @@
+ul{
+  list-style: none;
+  margin:0;
+  padding:0;
+}
+
+a{
+  text-decoration: none;
+}
+
+input{
+  outline: 0;
+}
+
+html{
+  color:#333;
+}
+
+/*文字颜色*/
+.c-error{
+  color:#f00;
+}
+
+
+/*input样式*/
+.vw-input{
+  width:490px;
+  height:60px;
+  padding-left: 20px;
+  border:1px solid #ddd;
+  border-radius: 5Px;
+}
+.vw-input:focus{
+  border-color: #41B883;
+  box-shadow:0 0 3Px #41B883;
+}
+
+/*button样式*/
+.vw-button{
+  background: #41B883;
+  color:#fff;
+  border-radius: 8px;
+  border: 1px solid #41B883;
+  outline: 0;
+}
+
+/*大 中 小*/
+.small{
+  width:300px;
+  height:80px;
+}
+.inside{
+  width:600px;
+  height:80px;
+}
+.big{
+  width:710px;
+  height:80px;
+}
+
+
+.m-t-10{
+  margin-top: 10px;
+}
+.m-t-20{
+  margin-top: 20px;
+}
+.m-t-30{
+  margin-top: 30px;
+}
+.m-t-40{
+  margin-top: 40px;
+}
+.m-t-50{
+  margin-top: 50px;
+}
+.m-t-60{
+  margin-top: 50px;
+}
