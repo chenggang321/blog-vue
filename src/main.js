@@ -8,6 +8,13 @@ import '@/assets/css/comment.css'
 import store from './store/index'
 import api from './utils/index'
 
+// 引入jquery
+import $ from 'jquery'
+
+// 引入bootstrap
+import 'bootstrap/js/bootstrap.min.js'
+import 'bootstrap/css/bootstrap.min.css'
+
 // 将工具方法挂载到Vue上
 Vue.use(api)
 
