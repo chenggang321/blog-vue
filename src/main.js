@@ -12,8 +12,8 @@ import api from './utils/index'
 import $ from 'jquery'
 
 // 引入bootstrap
-import 'bootstrap/js/bootstrap.min.js'
-import 'bootstrap/css/bootstrap.min.css'
+import '@/assets/bootstrap/js/bootstrap.min.js'
+import '@/assets/bootstrap/css/bootstrap.css'
 
 // 将工具方法挂载到Vue上
 Vue.use(api)

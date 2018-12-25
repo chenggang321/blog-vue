@@ -12,6 +12,11 @@
     </div>
     <button @click="handleClick" class="vw-button inside m-t-60">登录</button>
     <button @click="register" class="vw-button inside m-t-10">注册</button>
+    <div class="btn-group" role="group" aria-label="...">
+      <button type="button" class="btn btn-default">Left</button>
+      <button type="button" class="btn btn-default">Middle</button>
+      <button type="button" class="btn btn-default">Right</button>
+    </div>
   </div>
 </template>
 

@@ -10,21 +10,25 @@ const Home = () => import('@/pages/home')
 const List = () => import('@/components/list/list')
 const Msg = () => import('@/components/msg/msg')
 const My = () => import('@/components/my/my')
+const Admin = () => import('@/pages/admin')
 Vue.use(Router)
 
 const routes = [
   {
     path: '/',
-    redirect: '/login'
-  }, {
-    path:'/register',
+    redirect: '/home'
+  },
+  {
+    path: '/register',
     name: 'register',
-    component:Register
-  },{
+    component: Register
+  },
+  {
     path: '/login',
     name: 'login',
     component: Login
-  }, {
+  },
+  {
     path: '/home',
     name: 'home',
     component: Home,
@@ -38,7 +42,8 @@ const routes = [
           auth: true,
           title: '列表'
         }
-      }, {
+      },
+      {
         path: 'msg',
         name: 'msg',
         component: Msg,
@@ -46,7 +51,8 @@ const routes = [
           auth: true,
           title: '信息'
         }
-      }, {
+      },
+      {
         path: 'my',
         name: 'my',
         component: My,
@@ -58,8 +64,13 @@ const routes = [
     ]
   },
   {
+    path: '/admin',
+    name: 'admin',
+    component: Admin
+  },
+  {
     path: '/*',
-    redirect: '/login'
+    redirect: '/home'
   }
 ]
 
@@ -69,23 +80,23 @@ const router = new Router({
 
 // 全局路由守卫
 // 路由变化之前
-router.beforeEach((to, form, next) => {
-  const username = localStorage.get(loginUser)
-  // 登陆后直接首页
-  if (to.path === '/login') {
-    if (username) {
-      router.push('/home')
-    }
-  }
-  next()
-})
-// 路由变化之后
-router.afterEach((to) => {
-  const username = localStorage.get(loginUser)
-  // 未登录跳转登录页
-  if (!username && to.path !== '/login') {
-    //router.push('/login')
-  }
-})
+// router.beforeEach((to, form, next) => {
+//   const username = localStorage.get(loginUser)
+//   // 登陆后直接首页
+//   if (to.path === '/login') {
+//     if (username) {
+//       router.push('/home')
+//     }
+//   }
+//   next()
+// })
+// // 路由变化之后
+// router.afterEach((to) => {
+//   const username = localStorage.get(loginUser)
+//   // 未登录跳转登录页
+//   if (!username && to.path !== '/login') {
+//     //router.push('/login')
+//   }
+// })
 
 export default router
