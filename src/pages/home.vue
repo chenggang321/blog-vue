@@ -13,8 +13,8 @@
 </template>
 
 <script>
-  import VwHeader from '@/components/header/vw-header'
-  import VwContent from '@/components/content/vw-content'
+  import VwHeader from '@/components/header/blog-header'
+  import VwContent from '@/components/content/blog-content'
   import BlogAside from '@/components/aside/blog-aside'
 
   export default {
