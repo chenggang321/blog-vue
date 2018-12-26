@@ -1,27 +1,27 @@
 <template>
   <div class="container-fluid">
-    <vw-header></vw-header>
+    <blog-header></blog-header>
     <div class="row m-t-60">
       <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
         <blog-aside></blog-aside>
       </div>
       <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 blog-main">
-        <vw-content></vw-content>
+        <blog-content></blog-content>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-  import VwHeader from '@/components/header/blog-header'
-  import VwContent from '@/components/content/blog-content'
+  import BlogHeader from '@/components/header/blog-header'
+  import BlogContent from '@/components/content/blog-content'
   import BlogAside from '@/components/aside/blog-aside'
 
   export default {
     name: "home",
     components: {
-      VwHeader,
-      VwContent,
+      BlogHeader,
+      BlogContent,
       BlogAside
     }
   }

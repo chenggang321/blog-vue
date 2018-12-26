@@ -23,20 +23,20 @@ html{
 
 
 /*input样式*/
-.vw-input{
+.blog-input{
   width:490px;
-  height:60px;
+  height:40px;
   padding-left: 20px;
   border:1px solid #ddd;
   border-radius: 5Px;
 }
-.vw-input:focus{
+.blog-input:focus{
   border-color: #41B883;
   box-shadow:0 0 3Px #41B883;
 }
 
 /*button样式*/
-.vw-button{
+.blog-button{
   background: #41B883;
   color:#fff;
   border-radius: 8px;
@@ -46,16 +46,16 @@ html{
 
 /*大 中 小*/
 .small{
-  width:300px;
-  height:80px;
+  width:100px;
+  height:60px;
 }
 .inside{
-  width:600px;
-  height:80px;
+  width:200px;
+  height:60px;
 }
 .big{
-  width:710px;
-  height:80px;
+  width:300px;
+  height:60px;
 }
 
 
@@ -208,4 +208,8 @@ body{
   .blog-card table {
     min-width:800px;
   }
+}
+
+.modal-backdrop{
+  display: none;
 }

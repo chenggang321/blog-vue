@@ -44,7 +44,17 @@
               <li><a href="http://totrip.xin/tetris/tetris%20%E7%B4%A0%E6%9D%90/tetris.html">javascript俄罗斯方块游戏</a></li>
             </ul>
           </li>
-          <li><a href="javascript:;" onclick="showLogon(this)">登陆与注册</a></li>
+          <li>
+            <a data-toggle="modal" data-target="#loginModal" style="cursor:pointer;">登录</a>
+            <modal id="loginModal" title="登录">
+              <div slot="modal-body">
+                <login></login>
+              </div>
+              <!--<div slot="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+              </div>-->
+            </modal>
+          </li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -52,8 +62,15 @@
 </template>
 
 <script>
+  import Modal from '../modal/blog-modal'
+  import Login from '@/pages/login'
+
   export default {
-    name: "blogHeader"
+    name: "blogHeader",
+    components:{
+      Modal,
+      Login
+    }
   }
 </script>
 
