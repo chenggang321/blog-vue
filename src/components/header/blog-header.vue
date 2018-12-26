@@ -45,7 +45,15 @@
             </ul>
           </li>
           <li>
-            <a data-toggle="modal" data-target="#loginModal" style="cursor:pointer;">登录</a>
+            <a data-toggle="modal" data-target="#loginModal" style="cursor:pointer;" v-if="!userInfo">登录</a>
+            <ul class="nav navbar-nav navbar-right" v-else>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{userInfo.username}} <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a @click="removeUser">退出</a></li>
+                </ul>
+              </li>
+            </ul>
             <modal id="loginModal" title="登录">
               <div slot="modal-body">
                 <login></login>
@@ -64,9 +72,30 @@
 <script>
   import Modal from '../modal/blog-modal'
   import Login from '@/pages/login'
+  import { mapGetters,mapMutations } from 'vuex'
 
   export default {
     name: "blogHeader",
+    data(){
+      return {
+        userInfo:this.user
+      }
+    },
+    computed: {
+      ...mapGetters([
+        'user'
+      ])
+    },
+    methods:{
+      ...mapMutations({
+        removeUser: 'REMOVE_USER'
+      })
+    },
+    watch: {
+      user: function (val) {
+          this.userInfo = val
+      }
+    },
     components:{
       Modal,
       Login

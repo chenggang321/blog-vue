@@ -1,5 +1,5 @@
 export const user = (state) => {
-  return state.name
+  return state.user
 }
 export const loading = (state) => {
   return state.loading

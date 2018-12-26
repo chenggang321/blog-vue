@@ -1,9 +1,9 @@
 import axios from './api'
 // 统一的接口文件
-export const getUser = (data)=>{
+export const login = (data)=>{
   return axios({
-    url:'/user.json',
-    method:'get',
+    url:'/login',
+    method:'post',
     data:data,
     type:'json'
   })
@@ -18,8 +18,16 @@ export const register = (data)=>{
   })
 }
 
+export const userInfo = ()=>{
+  return axios({
+    url:'/userInfo',
+    method:'post'
+  })
+}
+
 // 导出全部
 export default {
-  getUser,
-  register
+  login,
+  register,
+  userInfo
 }

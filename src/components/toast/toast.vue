@@ -34,12 +34,12 @@
 
 <style scoped>
   .icon-success {
-    font-size: 30px;
+    font-size: 20px;
     color: #41B883;
   }
 
   .icon-Shapex{
-    font-size: 30px;
+    font-size: 20px;
     color: #FF9907;
   }
 
@@ -48,10 +48,10 @@
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
     word-wrap: break-word;
-    padding: 20px;
+    padding: 10px;
     text-align: center;
     z-index: 9999;
-    font-size: 30px;
+    font-size: 20px;
     max-width: 80%;
     color: #fff;
     border-radius: 10px;
