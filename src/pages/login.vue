@@ -137,15 +137,17 @@
           if(data.code === 200){
             toast({
               hasIcon: true,
+              position:'top',
               message: '注册成功！'
             })
             $('#loginModal').modal('hide')
+          }else{
+            toast({
+              hasIcon: true,
+              position:'top',
+              message: data.message
+            })
           }
-          toast({
-            hasIcon: true,
-            position:'top',
-            message: data.message
-          })
         })
       },
       ...mapMutations({
