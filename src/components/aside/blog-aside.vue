@@ -1,16 +1,21 @@
 <template>
-  <!--<div class="col-xs-12" v-if="categoryList">
+  <div class="col-xs-12" v-if="categoryList">
     <div class="list-group">
-      <a href="/" class="list-group-item">
+      <a class="list-group-item"
+         :class="{active:isActive===-1}"
+         @click="changeIndex(-1,'all')"
+      >
         全部文章分类
       </a>
-
-      <a href="/?category={{cate.id}}" class="list-group-item active">{{cate.name}}</a>
-
-      <a href="/?category={{cate.id}}" class="list-group-item">{{cate.name}}</a>
-
+      <a
+        v-for="(category,index) in categoryList"
+        :key="category.id"
+        :class="{active:isActive===index}"
+        class="list-group-item"
+        @click="changeIndex(index,category.name)"
+      >{{category.name}}</a>
     </div>
-  </div>-->
+  </div>
 </template>
 
 <script>
@@ -18,7 +23,8 @@
     name: "blog-aside",
     data() {
       return {
-        categoryList: null
+        categoryList: null,
+        isActive: -1
       }
     },
     created() {
@@ -27,6 +33,12 @@
         this.categoryList = data.data.list
       })
     },
+    methods:{
+      changeIndex(index,categoryName){
+        this.isActive = index
+        console.log(categoryName)
+      }
+    }
   }
 </script>
 

@@ -31,7 +31,7 @@
                aria-expanded="false">内容管理 <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="/admin/content">内容管理首页</a></li>
-              <li><a href="/admin/content/add">内容管理添加</a></li>
+              <li><router-link to="/admin/articleAdd">内容管理添加</router-link></li>
             </ul>
           </li>
           <li class="dropdown">

@@ -64,6 +64,23 @@ export const delCategory = (data)=>{
   })
 }
 
+export const addArticle = (data)=>{
+  return axios({
+    url:'/addArticle',
+    method:'post',
+    data:data
+  })
+}
+
+export const getArticleList = (data)=>{
+  return axios({
+    url:'/getArticleList',
+    method:'get',
+    data:data
+  })
+}
+
+
 // 导出全部
 export default {
   login,
@@ -73,5 +90,7 @@ export default {
   delUser,
   addCategory,
   getCategoryList,
-  delCategory
+  delCategory,
+  addArticle,
+  getArticleList
 }

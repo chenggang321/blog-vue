@@ -15,6 +15,7 @@ const AdminHome = () => import('@/components/admin-home/admin-home')
 const AdminUser = () => import('@/components/admin-user/admin-user')
 const AdminCategoryList = () => import('@/components/admin-category/category')
 const AdminCategoryAdd = () => import('@/components/admin-category/category-add')
+const AdminArticleAdd = () => import('@/components/admin-article/article-add')
 Vue.use(Router)
 
 const routes = [
@@ -107,6 +108,15 @@ const routes = [
         meta: {
           auth: true,
           title: '分类添加'
+        }
+      },
+      {
+        path: 'articleAdd',
+        name: 'articleAdd',
+        component: AdminArticleAdd,
+        meta: {
+          auth: true,
+          title: '文章添加'
         }
       }
     ]
