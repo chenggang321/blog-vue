@@ -1,4 +1,4 @@
-import axios from './api'
+import axios from '../utils/api'
 // 统一的接口文件
 export const login = (data)=>{
   return axios({
@@ -25,9 +25,26 @@ export const userInfo = ()=>{
   })
 }
 
+export const getUserList = ()=>{
+  return axios({
+    url:'/getUserList',
+    method:'get',
+  })
+}
+
+export const delUser = (data)=>{
+  return axios({
+    url:'/delUserById',
+    method:'post',
+    data:data
+  })
+}
+
 // 导出全部
 export default {
   login,
   register,
-  userInfo
+  userInfo,
+  getUserList,
+  delUser
 }

@@ -2,8 +2,8 @@
   <div>
     <AdminHeader></AdminHeader>
     <div class="container-fluid">
-      <div class="row m-t-60">
-
+      <div class="row">
+        <RouterView/>
       </div>
     </div>
   </div>

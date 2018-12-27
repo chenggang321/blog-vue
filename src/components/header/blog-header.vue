@@ -55,11 +55,12 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                    aria-expanded="false">{{userInfo.username}} <span class="caret"></span></a>
                 <ul class="dropdown-menu">
+                  <li v-if="userInfo.type === 0"><router-link to="/admin">进入后台</router-link></li>
                   <li><a @click="removeUser">退出</a></li>
                 </ul>
               </li>
             </ul>
-            <modal id="loginModal" title="登录">
+            <modal id="loginModal" title="登录/注册">
               <div slot="modal-body">
                 <login></login>
               </div>

@@ -11,6 +11,8 @@ const List = () => import('@/components/list/list')
 const Msg = () => import('@/components/msg/msg')
 const My = () => import('@/components/my/my')
 const Admin = () => import('@/pages/admin')
+const AdminHome = () => import('@/components/admin-home/admin-home')
+const AdminUser = () => import('@/components/admin-user/admin-user')
 Vue.use(Router)
 
 const routes = [
@@ -66,7 +68,28 @@ const routes = [
   {
     path: '/admin',
     name: 'admin',
-    component: Admin
+    component: Admin,
+    redirect: '/admin/index',
+    children: [
+      {
+        path: 'index',
+        name: 'index',
+        component: AdminHome,
+        meta: {
+          auth: true,
+          title: '首页'
+        }
+      },
+      {
+        path: 'user',
+        name: 'user',
+        component: AdminUser,
+        meta: {
+          auth: true,
+          title: '用户管理'
+        }
+      }
+    ]
   },
   {
     path: '/*',

@@ -1,5 +1,5 @@
 import localStorage from './localStorage'
-import apiList from './interface'
+import apiList from '@/interface/interface'
 import toast from '@/components/toast/toast'
 import des from './DES'
 
