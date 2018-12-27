@@ -13,6 +13,8 @@ const My = () => import('@/components/my/my')
 const Admin = () => import('@/pages/admin')
 const AdminHome = () => import('@/components/admin-home/admin-home')
 const AdminUser = () => import('@/components/admin-user/admin-user')
+const AdminCategoryList = () => import('@/components/admin-category/category')
+const AdminCategoryAdd = () => import('@/components/admin-category/category-add')
 Vue.use(Router)
 
 const routes = [
@@ -87,6 +89,24 @@ const routes = [
         meta: {
           auth: true,
           title: '用户管理'
+        }
+      },
+      {
+        path: 'categoryList',
+        name: 'categoryList',
+        component: AdminCategoryList,
+        meta: {
+          auth: true,
+          title: '分类列表'
+        }
+      },
+      {
+        path: 'categoryAdd',
+        name: 'categoryAdd',
+        component: AdminCategoryAdd,
+        meta: {
+          auth: true,
+          title: '分类添加'
         }
       }
     ]

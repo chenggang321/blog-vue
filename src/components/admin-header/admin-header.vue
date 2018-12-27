@@ -22,8 +22,8 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                aria-expanded="false">分类管理 <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="/admin/category">分类管理首页</a></li>
-              <li><a href="/admin/category/add">分类管理添加</a></li>
+              <li><router-link to="/admin/categoryList">分类管理首页</router-link></li>
+              <li><router-link to="/admin/categoryAdd">分类管理添加</router-link></li>
             </ul>
           </li>
           <li class="dropdown">

@@ -40,11 +40,38 @@ export const delUser = (data)=>{
   })
 }
 
+export const addCategory = (data)=>{
+  return axios({
+    url:'/addCategory',
+    method:'post',
+    data:data
+  })
+}
+
+export const getCategoryList = (data)=>{
+  return axios({
+    url:'/getCategoryList',
+    method:'get',
+    data:data
+  })
+}
+
+export const delCategory = (data)=>{
+  return axios({
+    url:'/delCategory',
+    method:'post',
+    data:data
+  })
+}
+
 // 导出全部
 export default {
   login,
   register,
   userInfo,
   getUserList,
-  delUser
+  delUser,
+  addCategory,
+  getCategoryList,
+  delCategory
 }
