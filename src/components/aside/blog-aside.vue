@@ -1,9 +1,9 @@
 <template>
-  <div class="col-xs-12" v-if="categoryList">
+  <div class="col-xs-12 m-t-20" v-if="categoryList">
     <div class="list-group">
       <a class="list-group-item"
          :class="{active:isActive===-1}"
-         @click="changeIndex(-1,'all')"
+         @click="changeIndex(-1,'')"
       >
         全部文章分类
       </a>
@@ -12,13 +12,15 @@
         :key="category.id"
         :class="{active:isActive===index}"
         class="list-group-item"
-        @click="changeIndex(index,category.name)"
+        @click="changeIndex(index,category._id)"
       >{{category.name}}</a>
     </div>
   </div>
 </template>
 
 <script>
+  import {mapMutations} from 'vuex'
+
   export default {
     name: "blog-aside",
     data() {
@@ -33,11 +35,17 @@
         this.categoryList = data.data.list
       })
     },
-    methods:{
-      changeIndex(index,categoryName){
+    methods: {
+      changeIndex(index, categoryId) {
         this.isActive = index
-        console.log(categoryName)
-      }
+        this.$api.getArticleList({category_id: categoryId}).then(res => {
+          const data = res.data
+          this.setArticleList(data.data.list)
+        })
+      },
+      ...mapMutations({
+        setArticleList: 'SET_ARTICLELIST'
+      })
     }
   }
 </script>

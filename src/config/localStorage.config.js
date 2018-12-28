@@ -1,2 +1,2 @@
 // localStorage
-export const loginUser = 'VW_USER' // 登录用户
+export const loginUser = 'BLOG_USER' // 登录用户

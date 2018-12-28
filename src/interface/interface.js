@@ -1,4 +1,6 @@
 import axios from '../utils/api'
+import qs from 'qs'
+
 // 统一的接口文件
 export const login = (data)=>{
   return axios({
@@ -73,9 +75,17 @@ export const addArticle = (data)=>{
 }
 
 export const getArticleList = (data)=>{
+  if(data) data = qs.stringify(data)
   return axios({
-    url:'/getArticleList',
-    method:'get',
+    url:'/getArticleList?'+data,
+    method:'get'
+  })
+}
+
+export const getArticleDetail = (data)=>{
+  return axios({
+    url:'/getArticleDetail',
+    method:'post',
     data:data
   })
 }
@@ -92,5 +102,6 @@ export default {
   getCategoryList,
   delCategory,
   addArticle,
-  getArticleList
+  getArticleList,
+  getArticleDetail
 }

@@ -20,6 +20,14 @@ Vue.use(api)
 
 Vue.config.productionTip = false
 
+// 自定义指令
+Vue.directive('highlight',function (el) {
+  let blocks = el.querySelectorAll('pre code');
+  blocks.forEach((block)=>{
+    hljs.highlightBlock(block)
+  })
+})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

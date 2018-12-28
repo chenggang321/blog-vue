@@ -8,14 +8,13 @@ const Login = () => import('@/pages/login')
 const Register = () => import('@/pages/register')
 const Home = () => import('@/pages/home')
 const List = () => import('@/components/list/list')
-const Msg = () => import('@/components/msg/msg')
-const My = () => import('@/components/my/my')
 const Admin = () => import('@/pages/admin')
 const AdminHome = () => import('@/components/admin-home/admin-home')
 const AdminUser = () => import('@/components/admin-user/admin-user')
 const AdminCategoryList = () => import('@/components/admin-category/category')
 const AdminCategoryAdd = () => import('@/components/admin-category/category-add')
 const AdminArticleAdd = () => import('@/components/admin-article/article-add')
+const ArticleDetail = () => import('@/components/detail/detail')
 Vue.use(Router)
 
 const routes = [
@@ -49,23 +48,14 @@ const routes = [
         }
       },
       {
-        path: 'msg',
-        name: 'msg',
-        component: Msg,
+        path:'articleDetail/:id',
+        name:'articleDetail',
+        component:ArticleDetail,
         meta: {
           auth: true,
-          title: '信息'
+          title: '详情'
         }
       },
-      {
-        path: 'my',
-        name: 'my',
-        component: My,
-        meta: {
-          auth: true,
-          title: '我的'
-        }
-      }
     ]
   },
   {

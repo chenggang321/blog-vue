@@ -16,5 +16,8 @@ export default {
   },
   [types.LOADING_HIDE](state){
     state.loading = false
+  },
+  [types.SET_ARTICLELIST](state,articleList){
+    state.articleList = articleList
   }
 }
