@@ -173,13 +173,14 @@ body{
   color: #f56c6c;
 }
 
+#categoryBox .list-group-item{
+  cursor:pointer;
+}
+
 #categoryBox .list-group-item.active{
   background-color: #fff;
   color: #409eff;
   border-color:#ddd;
-}
-#loginAndRegisterBox{
-  display:none;
 }
 @media screen and (max-device-width: 750px) {
   #categoryBox,#bannerBox{

@@ -26,7 +26,7 @@
       </div>
       <div class="form-group">
         <label for="description">简介：</label>
-        <input v-model="form.description" type="text" class="form-control" id="description" placeholder="请输入内容简介"
+        <input v-model="form.desc" type="text" class="form-control" id="description" placeholder="请输入内容简介"
                name="description">
       </div>
       <div class="form-group">
@@ -95,7 +95,7 @@
           title: '',
           author: '',
           keyword: '',
-          description: '',
+          desc: '',
           img_url: '',
           tags: '',
           type: '0',

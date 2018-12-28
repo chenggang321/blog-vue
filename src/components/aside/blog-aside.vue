@@ -1,5 +1,5 @@
 <template>
-  <div class="col-xs-12 m-t-20" v-if="categoryList">
+  <div class="col-xs-12 m-t-20" v-if="categoryList" id="categoryBox">
     <div class="list-group">
       <a class="list-group-item"
          :class="{active:isActive===-1}"

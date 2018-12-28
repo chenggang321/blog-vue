@@ -9,11 +9,11 @@
           <span class="blog-tag blog-tag&#45;&#45;success"><span
             class="glyphicon glyphicon-time blog-icon"></span><span>{{article.create_time}}</span></span>&nbsp;
           <span class="blog-tag blog-tag&#45;&#45;warning"><span
-            class="glyphicon glyphicon-eye-open blog-icon"></span><span>(10000)</span></span>&nbsp;
+            class="glyphicon glyphicon-eye-open blog-icon"></span><span>({{article.meta.views}})</span></span>&nbsp;
           <span class="blog-tag blog-tag&#45;&#45;danger"><span
-            class="glyphicon glyphicon-comment blog-icon"></span><span>(888)</span></span>
+            class="glyphicon glyphicon-comment blog-icon"></span><span>({{article.meta.comments}})</span></span>
         </p>
-        <p style="font-size: 15px">{{article.description}}</p>
+        <p style="font-size: 15px">{{article.desc}}</p>
         <p><a class="btn-sm blog-button" role="button" @click="showDetail(article._id)">查看全文 >>></a></p>
       </div>
     </div>
