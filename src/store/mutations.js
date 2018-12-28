@@ -19,5 +19,8 @@ export default {
   },
   [types.SET_ARTICLELIST](state,articleList){
     state.articleList = articleList
+  },
+  [types.SET_CATEGORY](state,category){
+    state.category = category
   }
 }

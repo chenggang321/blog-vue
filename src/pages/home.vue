@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid">
+  <div class="container-fluid" @scroll="handleScroll">
     <blog-header></blog-header>
     <div class="row m-t-60">
       <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
@@ -19,6 +19,11 @@
 
   export default {
     name: "home",
+    methods:{
+      handleScroll(){
+        console.log('success')
+      },
+    },
     components: {
       BlogHeader,
       BlogContent,

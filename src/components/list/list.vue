@@ -23,18 +23,44 @@
 
 <script>
   import {mapGetters,mapMutations} from 'vuex'
-
+  import {debounce,isReachBottom} from '@/utils/utils'
+  import toast from "../toast/toast";
   export default {
     name: "list",
     created() {
+      const self = this
       this.$api.getArticleList().then(res => {
         const data = res.data
         this.setArticleList(data.data.list)
       })
+
+      let page = 2;
+      // 滚动事件监听
+      window.onscroll=debounce(function(){
+        if(isReachBottom()){
+          self.$api.getArticleList({
+            category_id: self.category,
+            pageNum:page
+          }).then(res => {
+            const data = res.data
+            if(data.data.count>self.articleList.length){
+              page = data.data.currentPage + 1
+              self.articleList.push(...data.data.list)
+            }else{
+              toast({
+                hasIcon: true,
+                position:'top',
+                message: "没有文章了！"
+              })
+            }
+          })
+        }
+      },200)
     },
     computed:{
       ...mapGetters({
-        articleList: 'articleList'
+        articleList: 'articleList',
+        category:'category'
       })
     },
     methods:{
@@ -44,10 +70,13 @@
       ...mapMutations({
         setArticleList:'SET_ARTICLELIST'
       })
+    },
+    destroyed(){
+      // 切换组件时移除滚动事件
+      window.onscroll=null
     }
   }
 </script>
 
 <style scoped>
-
 </style>

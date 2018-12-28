@@ -41,10 +41,13 @@
         this.$api.getArticleList({category_id: categoryId}).then(res => {
           const data = res.data
           this.setArticleList(data.data.list)
+          this.setCategory(categoryId)
+          this.$router.push('/home/list')
         })
       },
       ...mapMutations({
-        setArticleList: 'SET_ARTICLELIST'
+        setArticleList: 'SET_ARTICLELIST',
+        setCategory:'SET_CATEGORY'
       })
     }
   }

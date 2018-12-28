@@ -2,6 +2,7 @@ import localStorage from './localStorage'
 import apiList from '@/interface/interface'
 import toast from '@/components/toast/toast'
 import des from './DES'
+import utils from './utils'
 
 // 将公用方法挂载到Vue的原型上
 const install = Vue =>{
@@ -26,6 +27,11 @@ const install = Vue =>{
     $des:{
       get(){
         return des
+      }
+    },
+    $utils:{
+      get(){
+        return utils
       }
     }
   })
