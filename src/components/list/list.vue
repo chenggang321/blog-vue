@@ -33,8 +33,7 @@
         const data = res.data
         this.setArticleList(data.data.list)
       })
-
-      let page = 2;
+      let page = 2
       // 滚动事件监听
       window.onscroll=debounce(function(){
         if(isReachBottom()){

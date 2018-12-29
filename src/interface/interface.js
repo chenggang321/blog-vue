@@ -90,6 +90,14 @@ export const getArticleDetail = (data)=>{
   })
 }
 
+export const addComment = (data)=>{
+  return axios({
+    url:'/addComment',
+    method:'post',
+    data:data
+  })
+}
+
 
 // 导出全部
 export default {
@@ -103,5 +111,6 @@ export default {
   delCategory,
   addArticle,
   getArticleList,
-  getArticleDetail
+  getArticleDetail,
+  addComment
 }

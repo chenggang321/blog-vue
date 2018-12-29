@@ -3,15 +3,33 @@
     <div v-if="userInfo">
       <div class="row">
         <div class="col-xs-6">评论</div>
-        <div class="col-xs-6" style="text-align: right">共有 <span class="messageCount" v-if="articleDetail">{{articleDetail.meta.comments}}</span> 条评论</div>
+        <div class="col-xs-6" style="text-align: right">共有 <span class="messageCount" v-if="articleDetail">{{articleDetail.meta.comments}}</span>
+          条评论
+        </div>
       </div>
       <br/>
       <div>{{JSON.parse(userInfo).username}}</div>
-      <textarea rows="3" class="form-control" placeholder="请输入评论" id="messageContent"></textarea><br/>
+      <textarea rows="3" class="form-control" placeholder="请输入评论" v-model="comment"></textarea><br/>
       <p>
-        <button class="btn btn-sm" role="button" id="messageBtn" style="background:#409eff;color:#fff;">提交</button>
+        <button @click="addComment(articleDetail._id,JSON.parse(userInfo)._id)" class="btn btn-sm" role="button"
+                style="background:#409eff;color:#fff;">提交
+        </button>
       </p>
-      <div class="panel panel-default messageList"></div>
+      <div class="panel panel-default messageList" v-if="articleDetail.comments.length">
+        <div class="panel-body" v-for="c in articleDetail.comments">
+          <div class="row">
+            <div class="col-xs-6">{{c.user_id}}</div>
+            <div class="col-xs-6" style="text-align: right">
+              {{c.create_time}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              {{c.content}}
+            </div>
+          </div>
+        </div>
+      </div>
       <nav>
         <ul class="pager">
           <li class="previous"><a href="javascript:;"><span aria-hidden="true">&larr;</span>上一页</a></li>
@@ -26,16 +44,42 @@
 
 <script>
   import {mapGetters} from 'vuex'
+  import toast from "../toast/toast";
 
   export default {
     name: "comment",
-    props:{
+    props: {
       articleDetail: Object
+    },
+    data() {
+      return {
+        comment: ''
+      }
     },
     computed: {
       ...mapGetters({
         userInfo: 'user'
       })
+    },
+    methods: {
+      addComment(article_id, user_id) {
+        console.log(article_id, user_id)
+        if (!this.comment) {
+          toast("评论不能为空")
+          return
+        }
+        this.$api.addComment({article_id, user_id, content: this.comment}).then(res => {
+          const data = res.data;
+          console.log(data)
+          if(data.data.code === 200){
+            this.articleDetail.comments.push({
+              user_id,
+              content:this.comment,
+              update_time:new Date()
+            })
+          }
+        })
+      }
     }
   }
 </script>
