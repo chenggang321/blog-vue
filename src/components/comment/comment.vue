@@ -3,7 +3,7 @@
     <div v-if="userInfo">
       <div class="row">
         <div class="col-xs-6">评论</div>
-        <div class="col-xs-6" style="text-align: right">共有 <span class="messageCount" v-if="articleDetail">{{articleDetail.meta.comments}}</span>
+        <div class="col-xs-6" style="text-align: right">共有 <span class="messageCount" v-if="articleDetail">{{articleDetail.comments.length}}</span>
           条评论
         </div>
       </div>
@@ -15,8 +15,8 @@
                 style="background:#409eff;color:#fff;">提交
         </button>
       </p>
-      <div class="panel panel-default messageList" v-if="articleDetail.comments.length">
-        <div class="panel-body" v-for="c in articleDetail.comments">
+      <div class="panel panel-default messageList" v-if="commentList">
+        <div class="panel-body" v-for="c in commentList">
           <div class="row">
             <div class="col-xs-6">{{c.user_id}}</div>
             <div class="col-xs-6" style="text-align: right">
@@ -53,30 +53,33 @@
     },
     data() {
       return {
-        comment: ''
+        comment: '',
       }
     },
     computed: {
+      commentList:function(){
+        return this.articleDetail&&this.articleDetail.comments
+      },
       ...mapGetters({
         userInfo: 'user'
       })
     },
     methods: {
       addComment(article_id, user_id) {
-        console.log(article_id, user_id)
         if (!this.comment) {
           toast("评论不能为空")
           return
         }
         this.$api.addComment({article_id, user_id, content: this.comment}).then(res => {
           const data = res.data;
-          console.log(data)
           if(data.data.code === 200){
-            this.articleDetail.comments.push({
+            this.commentList.push({
               user_id,
               content:this.comment,
               update_time:new Date()
             })
+          }else{
+            toast(data.message)
           }
         })
       }
