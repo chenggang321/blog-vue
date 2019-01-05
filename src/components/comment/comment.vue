@@ -15,8 +15,8 @@
                 style="background:#409eff;color:#fff;">提交
         </button>
       </p>
-      <div class="panel panel-default messageList" v-if="commentList">
-        <div class="panel-body" v-for="c in commentList">
+      <div class="panel panel-default messageList" v-if="comments">
+        <div class="panel-body" v-for="c in comments">
           <div class="row">
             <div class="col-xs-6">{{c.user_id}}</div>
             <div class="col-xs-6" style="text-align: right">
@@ -53,12 +53,12 @@
     },
     data() {
       return {
-        comment: '',
+        comment: ''
       }
     },
     computed: {
-      commentList:function(){
-        return this.articleDetail&&this.articleDetail.comments
+      comments(){
+        return this.articleDetail && this.articleDetail.comments
       },
       ...mapGetters({
         userInfo: 'user'
@@ -71,14 +71,15 @@
           return
         }
         this.$api.addComment({article_id, user_id, content: this.comment}).then(res => {
-          const data = res.data;
-          if(data.data.code === 200){
-            this.commentList.push({
+          const data = res.data
+          if (data.code === 200) {
+            console.log(data)
+            this.comments.push({
               user_id,
-              content:this.comment,
-              update_time:new Date()
+              content: data.data.content,
+              create_time: data.data.create_time
             })
-          }else{
+          } else {
             toast(data.message)
           }
         })

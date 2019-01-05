@@ -98,6 +98,14 @@ export const addComment = (data)=>{
   })
 }
 
+export const getCommentList = (data)=>{
+  if(data) data = qs.stringify(data)
+  return axios({
+    url:'/getCommentList?'+data,
+    method:'get'
+  })
+}
+
 
 // 导出全部
 export default {
@@ -112,5 +120,6 @@ export default {
   addArticle,
   getArticleList,
   getArticleDetail,
-  addComment
+  addComment,
+  getCommentList
 }
