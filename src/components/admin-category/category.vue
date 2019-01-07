@@ -22,7 +22,7 @@
         <td>{{category.create_time}}</td>
         <td>{{category.update_time}}</td>
         <td>
-          <a href="/admin/category/edit">修改</a>|
+          <a @click="toEditCategory(category._id)">修改</a>|
           <a @click="deleteCategory(category._id,index)">删除</a>
         </td>
       </tr>
@@ -65,6 +65,9 @@
             message: data.message
           })
         })
+      },
+      toEditCategory(id){
+        this.$router.push(`/admin/categoryEdit/${id}`)
       }
     }
   }

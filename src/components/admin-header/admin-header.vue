@@ -30,7 +30,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                aria-expanded="false">内容管理 <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="/admin/content">内容管理首页</a></li>
+              <li><router-link to="/admin/articleList">内容管理首页</router-link></li>
               <li><router-link to="/admin/articleAdd">内容管理添加</router-link></li>
             </ul>
           </li>

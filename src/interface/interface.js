@@ -66,6 +66,14 @@ export const delCategory = (data)=>{
   })
 }
 
+export const categoryDetail = (data)=>{
+  return axios({
+    url:'/getCategoryDetail',
+    method:'post',
+    data:data
+  })
+}
+
 export const addArticle = (data)=>{
   return axios({
     url:'/addArticle',
@@ -106,6 +114,22 @@ export const getCommentList = (data)=>{
   })
 }
 
+export const deleteArticle = (data)=>{
+  return axios({
+    url:'/delArticle',
+    method:'post',
+    data:data
+  })
+}
+
+export const updateCategory = (data)=>{
+  return axios({
+    url:'/updateCategory',
+    method:'post',
+    data:data
+  })
+}
+
 
 // 导出全部
 export default {
@@ -121,5 +145,8 @@ export default {
   getArticleList,
   getArticleDetail,
   addComment,
-  getCommentList
+  getCommentList,
+  deleteArticle,
+  categoryDetail,
+  updateCategory
 }
