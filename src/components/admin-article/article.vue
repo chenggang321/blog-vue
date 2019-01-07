@@ -6,15 +6,18 @@
     </ol>
     <h3>分类列表</h3>
     <table class="table table-hover table-bordered">
-      <tr>
-        <td>ID</td>
-        <td>文章名称</td>
-        <td>文章作者</td>
-        <td>文章介绍</td>
-        <td>创建时间</td>
-        <td>更新时间</td>
-        <td>操作</td>
-      </tr>
+      <thead>
+        <tr>
+          <td>ID</td>
+          <td>文章名称</td>
+          <td>文章作者</td>
+          <td>文章介绍</td>
+          <td>创建时间</td>
+          <td>更新时间</td>
+          <td>操作</td>
+        </tr>
+      </thead>
+
       <tbody v-if="articleList">
         <tr v-for="(article,index) in articleList">
           <td>{{index}}</td>

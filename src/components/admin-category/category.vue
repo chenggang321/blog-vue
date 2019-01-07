@@ -6,14 +6,17 @@
     </ol>
     <h3>分类列表</h3>
     <table class="table table-hover table-bordered">
-      <tr>
-        <td>ID</td>
-        <td>分类名称</td>
-        <td>分类介绍</td>
-        <td>创建时间</td>
-        <td>更新时间</td>
-        <td>操作</td>
-      </tr>
+      <thead>
+        <tr>
+          <td>ID</td>
+          <td>分类名称</td>
+          <td>分类介绍</td>
+          <td>创建时间</td>
+          <td>更新时间</td>
+          <td>操作</td>
+        </tr>
+      </thead>
+
       <tbody v-if="categoryList">
       <tr v-for="(category,index) in categoryList">
         <td>{{index}}</td>
