@@ -18,6 +18,7 @@ const ArticleDetail = () => import('@/components/detail/detail')
 const ArticleList = () => import('@/components/admin-article/article')
 const CategoryEdit = () => import('@/components/admin-category/category-edit')
 const ArticleEdit = () => import('@/components/admin-article/article-edit')
+const HtmlToMd = ()=> import('@/components/admin-tools/html-to-md')
 
 Vue.use(Router)
 
@@ -138,6 +139,15 @@ const routes = [
         meta: {
           auth: true,
           title: '文章编辑'
+        }
+      },
+      {
+        path: 'htmlToMd',
+        name: 'htmlToMd',
+        component: HtmlToMd,
+        meta: {
+          auth: true,
+          title: '工具'
         }
       }
     ]

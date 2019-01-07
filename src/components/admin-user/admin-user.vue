@@ -6,13 +6,15 @@
     </ol>
     <h3>用户列表</h3>
     <table class="table table-hover table-bordered">
-      <tr>
-        <td>ID</td>
-        <td>用户名</td>
-        <td>是否是管理员</td>
-        <td>设为管理员</td>
-        <td>删除用户</td>
-      </tr>
+      <tbody>
+        <tr>
+          <td>ID</td>
+          <td>用户名</td>
+          <td>是否是管理员</td>
+          <td>设为管理员</td>
+          <td>删除用户</td>
+        </tr>
+      </tbody>
       <tbody v-if="userList">
       <tr v-for="(user,index) in userList">
         <td>{{index}}</td>

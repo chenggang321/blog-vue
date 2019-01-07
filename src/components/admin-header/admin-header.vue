@@ -38,7 +38,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                aria-expanded="false">工具<span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="/admin/htmlToMd">html转md</a></li>
+              <li><router-link to="/admin/htmlToMd">html转md</router-link></li>
             </ul>
           </li>
         </ul>
