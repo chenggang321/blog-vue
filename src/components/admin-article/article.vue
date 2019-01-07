@@ -27,7 +27,7 @@
           <td>{{article.create_time}}</td>
           <td>{{article.update_time}}</td>
           <td>
-            <a href="/admin/category/edit">修改</a>|
+            <a @click="editArticle(article._id)">修改</a>|
             <a @click="deleteArticle(article._id,index)">删除</a>
           </td>
         </tr>
@@ -70,6 +70,9 @@
             message: data.message
           })
         })
+      },
+      editArticle(id){
+        this.$router.push(`/admin/articleEdit/${id}`)
       }
     }
   }

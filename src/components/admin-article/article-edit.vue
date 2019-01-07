@@ -73,7 +73,7 @@
       </div>
       <div class="form-group">
         <label>文章内容：</label>
-        <mavon-editor style="height: 100%" v-model="form.content" ></mavon-editor>
+        <mavon-editor style="height: 100%" v-model="form.content"></mavon-editor>
       </div>
       <button type="button" class="btn btn-default" @click="handleClick">提交</button>
     </form>
@@ -86,7 +86,7 @@
   import 'mavon-editor/dist/css/index.css'
 
   export default {
-    name: "article-add",
+    name: "article-edit",
     data() {
       return {
         categoryList: null,
@@ -101,7 +101,8 @@
           type: '0',
           state: '0',
           origin: '0',
-          content: ''
+          content: '',
+          id: ''
         }
       }
     },
@@ -110,10 +111,28 @@
         const data = res.data
         this.categoryList = data.data.list
       })
+      const id = this.$route.params.id
+      this.$api.getArticleDetail({id}).then(res => {
+        const data = res.data
+        this.form = {
+          category: data.data.category[0]._id,
+          title: data.data.title,
+          author: data.data.author,
+          keyword: data.data.keyword,
+          desc: data.data.desc,
+          img_url: data.data.img_url,
+          tags: data.data.tags,
+          type: data.data.type,
+          state: data.data.state,
+          origin: data.data.origin,
+          content: data.data.content,
+          id: this.$route.params.id
+        }
+      })
     },
     methods: {
       handleClick() {
-        this.$api.addArticle(this.form).then(res => {
+        this.$api.updateArticle(this.form).then(res => {
           const data = res.data
           toast({
             position: 'top',

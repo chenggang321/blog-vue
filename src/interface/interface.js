@@ -130,6 +130,14 @@ export const updateCategory = (data)=>{
   })
 }
 
+export const updateArticle = (data)=>{
+  return axios({
+    url:'/updateArticle',
+    method:'post',
+    data:data
+  })
+}
+
 
 // 导出全部
 export default {
@@ -148,5 +156,6 @@ export default {
   getCommentList,
   deleteArticle,
   categoryDetail,
-  updateCategory
+  updateCategory,
+  updateArticle
 }

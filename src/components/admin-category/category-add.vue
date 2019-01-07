@@ -49,8 +49,9 @@
             position:'top',
             message: data.message
           })
-          this.name = ''
-          this.desc = ''
+          if(data.code === 200){
+            this.$router.push('/admin/categoryList')
+          }
         })
       }
     }

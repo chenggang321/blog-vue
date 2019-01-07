@@ -16,7 +16,9 @@ const AdminCategoryAdd = () => import('@/components/admin-category/category-add'
 const AdminArticleAdd = () => import('@/components/admin-article/article-add')
 const ArticleDetail = () => import('@/components/detail/detail')
 const ArticleList = () => import('@/components/admin-article/article')
-const CategoryDetail = () => import('@/components/admin-category/category-edit')
+const CategoryEdit = () => import('@/components/admin-category/category-edit')
+const ArticleEdit = () => import('@/components/admin-article/article-edit')
+
 Vue.use(Router)
 
 const routes = [
@@ -123,10 +125,19 @@ const routes = [
       {
         path: 'categoryEdit/:id',
         name: 'categoryEdit',
-        component: CategoryDetail,
+        component: CategoryEdit,
         meta: {
           auth: true,
           title: '详情'
+        }
+      },
+      {
+        path: 'articleEdit/:id',
+        name: 'articleEdit',
+        component: ArticleEdit,
+        meta: {
+          auth: true,
+          title: '文章编辑'
         }
       }
     ]
