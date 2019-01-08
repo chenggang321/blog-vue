@@ -11,7 +11,7 @@
     </div>
     <div class="form-group">
       <label for="editor">md：</label>ß
-      <mavon-editor id="editor" style="height: 100%" v-model="content"></mavon-editor>        <!--</div>-->
+      <mavon-editor id="editor" style="height: 100%" v-model="content"></mavon-editor>
     </div>
     <button @click="handleClick" class="btn btn-default">转换</button>
   </div>
@@ -20,7 +20,6 @@
 <script>
   import {mavonEditor} from 'mavon-editor'
   import 'mavon-editor/dist/css/index.css'
-  import reMarked from '@/assets/js/reMarked'
 
   export default {
     name: "html-to-md",

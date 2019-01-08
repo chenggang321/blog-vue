@@ -33,23 +33,34 @@
       <td colspan="6">暂时没有用户</td>
       </tbody>
     </table>
+    <page class="pull-right page" :total="total" :current-page='current' @pagechange="pageChange"></page>
   </div>
 </template>
 
 <script>
   import toast from '@/components/toast/toast'
+  import Page from '@/components/page/page'
 
   export default {
     name: "admin-user",
     data() {
       return {
-        userList: null
+        userList: null,
+        total: 20,     // 记录总条数
+        display: 5,   // 每页显示条数
+        current: 1,   // 当前的页数
       }
     },
     created() {
       this.$api.getUserList().then(res => {
         const data = res.data;
-        data.code === 200 ? this.userList = data.data.list : null
+        console.log(data)
+        if(data.code === 200){
+          // this.total = data.data.count
+          // this.current = data.data.pageNum
+          // console.log(this.total,this.current)
+          this.userList = data.data.list
+        }
       })
     },
     methods: {
@@ -63,11 +74,19 @@
             message: res.data.message
           })
         })
+      },
+      pageChange(current){
+        console.log(current)
       }
+    },
+    components:{
+      Page
     }
   }
 </script>
 
 <style scoped>
-
+  .page{
+    margin-right: 20px;
+  }
 </style>

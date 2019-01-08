@@ -1,6 +1,6 @@
 <template>
   <div class="loadingBox">
-    <img width="60" height="60" src="./loading.gif">
+    <img width="60" height="60" src="./loading.gif" id="loading">
     <p class="desc">{{title}}</p>
   </div>
 </template>
@@ -30,5 +30,9 @@
   .desc{
     color:#333;
     font-size: 14px;
+  }
+  #loading{
+    width:60px;
+    height:60px;
   }
 </style>

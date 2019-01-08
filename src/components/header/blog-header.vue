@@ -10,8 +10,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/"><span><img src="/static/img/favicon.png"
-                                                    style="margin-top: -5px;"/>&nbsp;</span></a>
+        <a class="navbar-brand" href="/"><span><img class="logo" src="/static/img/favicon.png" style="margin-top: -5px;"/>&nbsp;</span></a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -55,7 +54,9 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                    aria-expanded="false">{{userInfo.username}} <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li v-if="userInfo.type === 0"><router-link to="/admin">进入后台</router-link></li>
+                  <li v-if="userInfo.type === 0">
+                    <router-link to="/admin">进入后台</router-link>
+                  </li>
                   <li><a @click="removeUser">退出</a></li>
                 </ul>
               </li>
@@ -83,11 +84,11 @@
   export default {
     name: "blogHeader",
     computed: {
-      userInfo(){
+      userInfo() {
         return this.user === undefined ? null : JSON.parse(this.user)
       },
       ...mapGetters({
-        user:"user"
+        user: "user"
       })
     },
     methods: {
@@ -103,5 +104,8 @@
 </script>
 
 <style scoped>
-
+  .logo{
+    width:32px;
+    height:32px;
+  }
 </style>
