@@ -73,7 +73,6 @@
         this.$api.addComment({article_id, user_id, content: this.comment}).then(res => {
           const data = res.data
           if (data.code === 200) {
-            console.log(data)
             this.comments.push({
               user_id,
               content: data.data.content,

@@ -1,4 +1,4 @@
-# vw-layout
+# blog-vue
 
 > A Vue.js project
 
