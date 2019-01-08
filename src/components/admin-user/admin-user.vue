@@ -51,19 +51,12 @@
       return {
         userList: null,
         total: 0,     // 记录总条数
-        display: 2,   // 每页显示条数
-        current: 0,   // 当前的页数
+        display: 10,   // 每页显示条数
+        current: 1,   // 当前的页数
       }
     },
     created() {
-      this.$api.getUserList().then(res => {
-        const data = res.data;
-        if (data.code === 200) {
-          this.total = data.data.count
-          this.current = data.data.pageNum
-          this.userList = data.data.list
-        }
-      })
+      this.getUserList()
     },
     methods: {
       removeUser(id, index) {
@@ -78,7 +71,20 @@
         })
       },
       pageChange(current) {
-        console.log(current)
+        this.getUserList(current)
+      },
+      getUserList(currentPage = 1) {
+        this.$api.getUserList({
+          pageSize: this.display,
+          pageNum: currentPage
+        }).then(res => {
+          const data = res.data;
+          if (data.code === 200) {
+            this.total = data.data.count
+            this.current = data.data.pageNum
+            this.userList = data.data.list
+          }
+        })
       }
     },
     components: {

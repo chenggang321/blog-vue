@@ -27,9 +27,10 @@ export const userInfo = ()=>{
   })
 }
 
-export const getUserList = ()=>{
+export const getUserList = (data)=>{
+  if(data) data = qs.stringify(data)
   return axios({
-    url:'/getUserList',
+    url:'/getUserList?'+data,
     method:'get',
   })
 }
@@ -51,10 +52,10 @@ export const addCategory = (data)=>{
 }
 
 export const getCategoryList = (data)=>{
+  if(data) data = qs.stringify(data)
   return axios({
-    url:'/getCategoryList',
-    method:'get',
-    data:data
+    url:'/getCategoryList?'+data,
+    method:'get'
   })
 }
 

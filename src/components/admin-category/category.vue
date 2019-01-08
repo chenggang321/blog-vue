@@ -35,26 +35,31 @@
           <td colspan="3">暂时没有分类</td>
         </tr>
       </tbody>
-
     </table>
+    <page class="pull-right page"
+          :total="total"
+          :current-page='current'
+          :display="display"
+          @pagechange="pageChange"></page>
   </div>
 </template>
 
 <script>
   import toast from "@/components/toast/toast"
+  import Page from '@/components/page/page'
 
   export default {
     name: "category",
     data() {
       return {
-        categoryList: null
+        categoryList: null,
+        total: 0,     // 记录总条数
+        display: 10,   // 每页显示条数
+        current: 1,   // 当前的页数
       }
     },
     created() {
-      this.$api.getCategoryList().then(res => {
-        const data = res.data
-        this.categoryList = data.data.list
-      })
+      this.getCategoryList()
     },
     methods:{
       deleteCategory(id,index){
@@ -71,11 +76,30 @@
       },
       toEditCategory(id){
         this.$router.push(`/admin/categoryEdit/${id}`)
+      },
+      pageChange(current) {
+        this.getCategoryList(current)
+      },
+      getCategoryList(currentPage){
+        this.$api.getCategoryList({
+          pageSize: this.display,
+          pageNum: currentPage
+        }).then(res => {
+          const data = res.data
+          this.total = data.data.count
+          this.current = data.data.pageNum
+          this.categoryList = data.data.list
+        })
       }
+    },
+    components:{
+      Page
     }
   }
 </script>
 
 <style scoped>
-
+  .page {
+    margin-right: 20px;
+  }
 </style>
