@@ -7,13 +7,13 @@
     <h3>用户列表</h3>
     <table class="table table-hover table-bordered">
       <tbody>
-        <tr>
-          <td>ID</td>
-          <td>用户名</td>
-          <td>是否是管理员</td>
-          <td>设为管理员</td>
-          <td>删除用户</td>
-        </tr>
+      <tr>
+        <td>ID</td>
+        <td>用户名</td>
+        <td>是否是管理员</td>
+        <td>设为管理员</td>
+        <td>删除用户</td>
+      </tr>
       </tbody>
       <tbody v-if="userList">
       <tr v-for="(user,index) in userList">
@@ -33,7 +33,11 @@
       <td colspan="6">暂时没有用户</td>
       </tbody>
     </table>
-    <page class="pull-right page" :total="total" :current-page='current' @pagechange="pageChange"></page>
+    <page class="pull-right page"
+          :total="total"
+          :current-page='current'
+          :display="display"
+          @pagechange="pageChange"></page>
   </div>
 </template>
 
@@ -46,26 +50,24 @@
     data() {
       return {
         userList: null,
-        total: 20,     // 记录总条数
-        display: 5,   // 每页显示条数
-        current: 1,   // 当前的页数
+        total: 0,     // 记录总条数
+        display: 2,   // 每页显示条数
+        current: 0,   // 当前的页数
       }
     },
     created() {
       this.$api.getUserList().then(res => {
         const data = res.data;
-        console.log(data)
-        if(data.code === 200){
-          // this.total = data.data.count
-          // this.current = data.data.pageNum
-          // console.log(this.total,this.current)
+        if (data.code === 200) {
+          this.total = data.data.count
+          this.current = data.data.pageNum
           this.userList = data.data.list
         }
       })
     },
     methods: {
-      removeUser(id,index) {
-        if (index > - 1) {
+      removeUser(id, index) {
+        if (index > -1) {
           this.userList.splice(index, 1);
         }
         this.$api.delUser({id}).then(res => {
@@ -75,18 +77,18 @@
           })
         })
       },
-      pageChange(current){
+      pageChange(current) {
         console.log(current)
       }
     },
-    components:{
+    components: {
       Page
     }
   }
 </script>
 
 <style scoped>
-  .page{
+  .page {
     margin-right: 20px;
   }
 </style>

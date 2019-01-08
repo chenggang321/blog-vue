@@ -59,16 +59,23 @@
         return Math.ceil(this.total / this.display);
       },
       grouplist: function () { // 获取分页页码
-        var len = this.page, temp = [], list = [], count = Math.floor(this.pagegroup / 2), center = this.current;
+        var len = this.page,
+          temp = [],
+          list = [],
+          count = Math.floor(this.pagegroup / 2),
+          center = this.current;
+
         if (len <= this.pagegroup) {
           while (len--) {
             temp.push({text: this.page - len, val: this.page - len});
           }
           return temp;
         }
+
         while (len--) {
           temp.push(this.page - len);
         }
+
         var idx = temp.indexOf(center);
         (idx < count) && (center = center + count - idx);
         (this.current > this.page - count) && (center = this.page - count);
@@ -84,6 +91,7 @@
           (this.current > count + 1) && list.unshift({text: '...', val: list[0].val - 1});
           (this.current < this.page - count) && list.push({text: '...', val: list[list.length - 1].val + 1});
         }
+        console.log(list);
         return list;
       }
     },
