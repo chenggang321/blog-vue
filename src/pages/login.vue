@@ -159,7 +159,7 @@
 
 <style scoped>
   .form-horizontal {
-    width: 450px;
+    /*width: 450px;*/
     margin: 0 auto;
   }
 </style>
