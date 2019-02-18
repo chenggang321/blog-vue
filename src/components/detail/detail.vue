@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="blog-card" style="margin-top:20px;" v-if="content">
+    <div class="blog-card" style="margin-top:20px;" v-if="compileContent">
       <h4>详情</h4>
       <h4>{{content.title}}</h4>
       <hr/>
