@@ -153,6 +153,15 @@ const routes = [
     ]
   },
   {
+    path:'/chat',
+    name:'chat',
+    component:()=>import('@/pages/chat'),
+    meta:{
+      auth:true,
+      title:'chat'
+    }
+  },
+  {
     path: '/*',
     redirect: '/home'
   }
