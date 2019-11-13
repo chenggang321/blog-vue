@@ -1,6 +1,7 @@
 <template>
     <section class="content">
-      <RouterView/>
+      111
+      <router-view></router-view>
     </section>
 </template>
 

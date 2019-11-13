@@ -1,13 +1,16 @@
 export default {
   path: '/home',
   name: 'home',
-  component: () => import('@/pages/home'),
+  components: {
+    layout:()=>import('@/pages/common/layout'),
+    default:() => import('@/pages/home')
+  },
   redirect: '/home/list',
   children: [
     {
       path: 'list',
       name: 'list',
-      component: () => import('@/components/list/list'),
+      component: () => import('@/pages/home/list'),
       meta: {
         auth: true,
         title: '列表'

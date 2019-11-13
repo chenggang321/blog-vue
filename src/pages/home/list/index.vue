@@ -1,6 +1,5 @@
 <template>
   <div>
-    111
     <div class="testContent" id="ContentBox" style="margin-top:20px;" v-if="articleList.length !== 0">
       <div class="blog-card" v-for="article in articleList" :key="article.id">
         <h4>{{article.title}}</h4>
@@ -25,9 +24,9 @@
 <script>
   import {mapGetters,mapMutations} from 'vuex'
   import {debounce,isReachBottom} from '@/utils/utils'
-  import toast from "../toast/toast";
+  import toast from "@/components/toast/toast";
   export default {
-    name: "list",
+    name: "index",
     created() {
       const self = this
       this.$api.getArticleList().then(res => {
