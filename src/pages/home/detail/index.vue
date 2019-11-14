@@ -20,7 +20,7 @@
   import './highlight/styles/tomorrow.css'
   import './marked'
   import './highlight/highlight.pack'
-  import Comment from '@/components/comment/comment'
+  import Comment from '@/pages/home/detail/comment'
 
   export default {
     name: "detail",

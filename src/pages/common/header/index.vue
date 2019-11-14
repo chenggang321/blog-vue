@@ -77,7 +77,7 @@
 </template>
 
 <script>
-  import Modal from '../modal/blog-modal'
+  import Modal from '@/components/modal/blog-modal'
   import Login from '@/pages/login'
   import {mapGetters, mapMutations} from 'vuex'
 

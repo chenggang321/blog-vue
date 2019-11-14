@@ -21,14 +21,14 @@
       <tbody v-if="articleList">
         <tr v-for="(article,index) in articleList">
           <td>{{index}}</td>
-          <td>{{article.title}}</td>
-          <td>{{article.author}}</td>
-          <td>{{article.desc}}</td>
-          <td>{{article.create_time}}</td>
-          <td>{{article.update_time}}</td>
+          <td>{{index.title}}</td>
+          <td>{{index.author}}</td>
+          <td>{{index.desc}}</td>
+          <td>{{index.create_time}}</td>
+          <td>{{index.update_time}}</td>
           <td>
-            <a @click="editArticle(article._id)">修改</a>|
-            <a @click="deleteArticle(article._id,index)">删除</a>
+            <a @click="editArticle(index._id)">修改</a>|
+            <a @click="deleteArticle(index._id,index)">删除</a>
           </td>
         </tr>
       </tbody>

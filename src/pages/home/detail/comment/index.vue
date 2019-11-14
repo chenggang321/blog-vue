@@ -44,7 +44,7 @@
 
 <script>
   import {mapGetters} from 'vuex'
-  import toast from "../toast/toast";
+  import toast from "@/components/toast/toast";
 
   export default {
     name: "comment",

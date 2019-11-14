@@ -81,7 +81,7 @@
 </template>
 
 <script>
-  import toast from "../toast/toast";
+  import toast from "@/components/toast/toast";
   import {mavonEditor} from 'mavon-editor'
   import 'mavon-editor/dist/css/index.css'
 

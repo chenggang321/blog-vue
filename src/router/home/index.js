@@ -19,7 +19,7 @@ export default {
     {
       path:'articleDetail/:id',
       name:'articleDetail',
-      component:() => import('@/components/detail/detail'),
+      component:() => import('@/pages/home/detail'),
       meta: {
         auth: true,
         title: '详情'

@@ -1,13 +1,16 @@
 export default   {
   path: '/admin',
   name: 'admin',
-  component: () => import('@/pages/admin'),
+  components:{
+    layout: () => import('@/pages/common/adminLayout'),
+    default:() => import('@/pages/admin')
+  },
   redirect: '/admin/index',
   children: [
     {
       path: 'index',
       name: 'index',
-      component: () => import('@/components/admin-home/admin-home'),
+      component: () => import('@/pages/admin/home'),
       meta: {
         auth: true,
         title: '首页'
@@ -16,7 +19,7 @@ export default   {
     {
       path: 'user',
       name: 'user',
-      component: () => import('@/components/admin-user/admin-user'),
+      component: () => import('@/pages/admin/user/list'),
       meta: {
         auth: true,
         title: '用户管理'
@@ -25,7 +28,7 @@ export default   {
     {
       path: 'categoryList',
       name: 'categoryList',
-      component: () => import('@/components/admin-category/category'),
+      component: () => import('@/pages/admin/category/list'),
       meta: {
         auth: true,
         title: '分类列表'
@@ -34,7 +37,7 @@ export default   {
     {
       path: 'categoryAdd',
       name: 'categoryAdd',
-      component: () => import('@/components/admin-category/category-add'),
+      component: () => import('@/pages/admin/category/add'),
       meta: {
         auth: true,
         title: '分类添加'
@@ -43,7 +46,7 @@ export default   {
     {
       path: 'articleAdd',
       name: 'articleAdd',
-      component: () => import('@/components/admin-article/article-add'),
+      component: () => import('@/pages/admin/article/add'),
       meta: {
         auth: true,
         title: '文章添加'
@@ -52,7 +55,7 @@ export default   {
     {
       path: 'articleList',
       name: 'articleList',
-      component: () => import('@/components/admin-article/article'),
+      component: () => import('@/pages/admin/article/list'),
       meta: {
         auth: true,
         title: '文章列表'
@@ -61,7 +64,7 @@ export default   {
     {
       path: 'categoryEdit/:id',
       name: 'categoryEdit',
-      component: () => import('@/components/admin-category/category-edit'),
+      component: () => import('@/pages/admin/category/edit'),
       meta: {
         auth: true,
         title: '详情'
@@ -70,7 +73,7 @@ export default   {
     {
       path: 'articleEdit/:id',
       name: 'articleEdit',
-      component: () => import('@/components/admin-article/article-edit'),
+      component: () => import('@/pages/admin/article/edit'),
       meta: {
         auth: true,
         title: '文章编辑'
@@ -79,7 +82,7 @@ export default   {
     {
       path: 'htmlToMd',
       name: 'htmlToMd',
-      component: ()=> import('@/components/admin-tools/html-to-md'),
+      component: ()=> import('@/pages/admin/tools/htmlToMd'),
       meta: {
         auth: true,
         title: '工具'

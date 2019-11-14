@@ -10,10 +10,10 @@
 </template>
 
 <script>
-  import AdminHeader from '@/components/admin-header/admin-header'
+  import AdminHeader from '@/pages/common/adminHeader'
 
   export default {
-    name: "admin",
+    name: "index",
     components: {
       AdminHeader
     }

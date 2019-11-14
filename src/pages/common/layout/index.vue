@@ -13,8 +13,8 @@
 </template>
 
 <script>
-  import BlogHeader from '@/components/header/blog-header'
-  import BlogAside from '@/components/aside/blog-aside'
+  import BlogHeader from '@/pages/common/header'
+  import BlogAside from '@/pages/common/aside'
     export default {
         name: "index",
       components:{
