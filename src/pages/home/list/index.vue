@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="testContent" id="ContentBox" style="margin-top:20px;" v-if="articleList.length !== 0">
-      <div class="blog-card" v-for="article in articleList" :key="article.id">
+      <div class="blog-card" v-for="article in articleList" :key="article.id" @click="showDetail(article._id)">
         <h4>{{article.title}}</h4>
         <hr style="color:#fff;margin:10px;"/>
         <p style="font-size: 10px">
@@ -14,7 +14,7 @@
             class="glyphicon glyphicon-comment blog-icon"></span><span>({{article.meta.comments}})</span></span>
         </p>
         <p style="font-size: 15px">{{article.desc}}</p>
-        <p><a class="btn-sm blog-button" role="button" @click="showDetail(article._id)">查看全文 >>></a></p>
+        <p>查看全文 >>></p>
       </div>
     </div>
     <div class="alert alert-warning" role="alert" style="text-align: center;margin-top:20px;" v-else>暂无文章</div>

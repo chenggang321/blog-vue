@@ -28,25 +28,6 @@
         </form>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="https://github.com/chenggang321"><span></span>github</a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-               aria-expanded="false">作品<span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="javascript:;" style="background:#ddd;">移动端</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="http://totrip.xin:9000">cell</a></li>
-              <li><a href="http://totrip.xin:3000">music</a></li>
-              <!-- <li><a href="http://totrip.xin/美丽Q用户版">美丽Q</a></li> -->
-              <li role="separator" class="divider"></li>
-              <li><a href="javascript:;" style="background:#ddd;">pc端</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="http://totrip.xin/yd/">仿移动官网</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="javascript:;" style="background:#ddd;">游戏</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="http://totrip.xin/tetris/tetris%20%E7%B4%A0%E6%9D%90/tetris.html">javascript俄罗斯方块游戏</a></li>
-            </ul>
-          </li>
           <li>
             <a data-toggle="modal" data-target="#loginModal" style="cursor:pointer;" v-if="!userInfo">登录</a>
             <ul class="nav navbar-nav navbar-right" v-else>
