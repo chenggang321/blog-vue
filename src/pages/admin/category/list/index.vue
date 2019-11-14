@@ -10,7 +10,6 @@
         <tr>
           <td>ID</td>
           <td>分类名称</td>
-          <td>分类介绍</td>
           <td>创建时间</td>
           <td>更新时间</td>
           <td>操作</td>
@@ -21,7 +20,6 @@
       <tr v-for="(category,index) in categoryList">
         <td>{{index}}</td>
         <td>{{category.name}}</td>
-        <td>{{category.desc}}</td>
         <td>{{category.create_time}}</td>
         <td>{{category.update_time}}</td>
         <td>
