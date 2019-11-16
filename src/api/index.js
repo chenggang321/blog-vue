@@ -139,6 +139,18 @@ export const updateArticle = (data)=>{
   })
 }
 
+export const uploads = (data) =>{
+  console.log(data);
+  return axios({
+    url:'/uploads',
+    method:'post',
+    headers: {
+      'Content-Type': 'multipart/form-data'
+    },
+    data
+  })
+}
+
 // 导出全部
 export default {
   login,
@@ -157,5 +169,6 @@ export default {
   deleteArticle,
   categoryDetail,
   updateCategory,
-  updateArticle
+  updateArticle,
+  uploads
 }
