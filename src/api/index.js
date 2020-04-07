@@ -140,7 +140,6 @@ export const updateArticle = (data)=>{
 }
 
 export const uploads = (data) =>{
-  console.log(data);
   return axios({
     url:'/uploads',
     method:'post',
