@@ -1,10 +1,7 @@
 export default   {
   path: '/admin',
   name: 'admin',
-  components:{
-    layout: () => import('@/pages/common/adminLayout'),
-    default:() => import('@/pages/admin')
-  },
+  component: () => import('@/pages/common/layout/adminLayout'),
   redirect: '/admin/index',
   children: [
     {

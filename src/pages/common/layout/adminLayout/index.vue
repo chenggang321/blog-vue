@@ -10,7 +10,7 @@
 </template>
 
 <script>
-  import AdminHeader from '@/pages/common/adminHeader'
+  import AdminHeader from '@/pages/common/layout/adminHeader'
 
   export default {
     name: "index",

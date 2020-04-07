@@ -1,10 +1,7 @@
 export default {
   path: '/home',
   name: 'home',
-  components: {
-    layout:()=>import('@/pages/common/layout'),
-    default:() => import('@/pages/home')
-  },
+  component: () => import('@/pages/common/layout/homeLayout'),
   redirect: '/home/list',
   children: [
     {
